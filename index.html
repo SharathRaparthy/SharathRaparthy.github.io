@@ -56,6 +56,10 @@
         <h2>News</h2>
 
             <ul>
+                    <li> <b> Mar 2024:</b> New preprint on <a href="https://arxiv.org/abs/2402.16822"> Rainbow Teaming: Open-Ended Generation of Diverse Adversarial Prompts </a> is out.</li>
+                    <li> <b> Mar 2024:</b> New preprint on <a href="https://arxiv.org/abs/2403.04642"> GLoRe: When, Where, and How to Improve LLM Reasoning via Global and Local Refinements </a> is out.</li>
+                    <li> <b> Mar 2024:</b> New preprint on <a href="https://arxiv.org/abs/2312.03801"> Teaching large language models to reason with reinforcement learning </a> is out.</li>
+                    <li> <b> Feb 2024:</b> Featured on  <a href="https://www.talkrl.com/episodes/sharath-chandra-raparthy"> TalkRL podcast </a> to discuss our work on In-context Learning for Sequential Decision Making.</li>
                     <li> <b> Dec 2023:</b> New preprint on <a href="https://arxiv.org/abs/2312.03801"> Generalization to New Sequential Decision Making Tasks with In-Context Learning </a> is out.</li>
                     <li> <b> Oct 2022:</b> Our work<a href="https://arxiv.org/abs/2210.12765"> Multi-Objective GFlowNets</a> got accepted at ICML 2023</li>
                     <li> <b> Aug 2022:</b> Our work<a href="https://arxiv.org/abs/2110.09419"> Continual Learning In Environments With Polynomial Mixing Times</a> got accepted at NeurIPS 2022</li>
@@ -102,6 +106,85 @@
             </td>
           </tr>
                 -->
+              <tr onmouseout="comp_attention_stop()" onmouseover="comp_attention_start()">
+                  <td style="padding:20px;width:25%;vertical-align:middle">
+                    <img src="images/rainbow-teaming.png" alt="kts" style="border-style: none" width="200">
+                  </td>
+                  <td style="padding:20px;width:75%;vertical-align:middle">
+                    <a href="https://arxiv.org/abs/2402.16822">
+                      <papertitle>Rainbow Teaming: Open-Ended Generation of Diverse Adversarial Prompts</papertitle>
+                    </a>
+                    <br>
+                    Mikayel Samvelyan*, <strong>Sharath Chandra Raparthy*</td>strong></strong>, Andrei Lupu*, Eric Hambro, Aram H. Markosyan, Manish Bhatt, Yuning Mao, Minqi Jiang, Jack Parker-Holder, Jakob Foerster, Tim Rocktäschel, Roberta Raileanu
+                    <br>
+                    <em>Arxiv</em>.
+                    <br>
+                    <!-- <b style="color:red">Spotlight Presentation</b> -->
+                    <br>
+                    [
+                    <a href="https://arxiv.org/abs/2402.16822">Paper</a>
+                     /
+                    <a href="https://sites.google.com/view/rainbow-teaming">Website</a>
+                     /
+                     <a href="https://twitter.com/_samvelyan/status/1762519344943104195">tl;dr</a>
+                     ]
+                    <br>
+                    <br>
+                    <p>
+                    Introducing Rainbow Teaming, a new method for generating diverse adversarial prompts for LLMs via LLMs. It's a versatile tool 🛠️ for diagnosing model vulnerabilities across domains and creating data to enhance robustness & safety. 
+                    </p>
+                  </td>
+              </tr>
+              <tr onmouseout="comp_attention_stop()" onmouseover="comp_attention_start()">
+                  <td style="padding:20px;width:25%;vertical-align:middle">
+                    <img src="images/galore.png" alt="kts" style="border-style: none" width="200">
+                  </td>
+                  <td style="padding:20px;width:75%;vertical-align:middle">
+                    <a href="https://arxiv.org/abs/2312.03801">
+                      <papertitle>GLoRe: When, Where, and How to Improve LLM Reasoning via Global and Local Refinements</papertitle>
+                    </a>
+                    <br>
+                    Alex Havrilla, <strong>Sharath Chandra Raparthy</strong>, Christoforus Nalmpantis, Jane Dwivedi-Yu, Maksym Zhuravinskyi, Eric Hambro, Roberta Railneau
+                    <br>
+                    <em>Arxiv</em>.
+                    <br>
+                    <!-- <b style="color:red">Spotlight Presentation</b> -->
+                    <br>
+                    [
+                    <a href="https://arxiv.org/abs/2402.10963">Paper</a>
+                     /
+                    <a href="https://twitter.com/Dahoas1/status/1760021603105288550">tl;dr</a>
+                     ]
+                    <br>
+                    <p>How to bootstrap the reasoning refinement capabilities of LLMs using synthetic data? Introducing "GLoRe: When, Where, and How to Improve LLM Reasoning via Global and Local Refinements". Applied on GSM8K we can improve a strong RL finetuned LLama-2 13B by 12%</p>
+                  </td>
+              </tr>
+              <tr onmouseout="comp_attention_stop()" onmouseover="comp_attention_start()">
+                  <td style="padding:20px;width:25%;vertical-align:middle">
+                    <img src="images/gsm8k.png" alt="kts" style="border-style: none" width="200">
+                  </td>
+                  <td style="padding:20px;width:75%;vertical-align:middle">
+                    <a href="https://arxiv.org/abs/2312.03801">
+                      <papertitle>Teaching Large Language Models to Reason with Reinforcement Learning</papertitle>
+                    </a>
+                    <br>
+                    Alex Havrilla, Yuqing Du, <strong>Sharath Chandra Raparthy</strong>, Christoforos Nalmpantis, Jane Dwivedi-Yu, Maksym Zhuravinskyi, Eric Hambro, Sainbayar Sukhbaatar, Roberta Raileanu
+                    <br>
+                    <em>Arxiv</em>.
+                    <br>
+                    <!-- <b style="color:red">Spotlight Presentation</b> -->
+                    <br>
+                    [
+                    <a href="https://arxiv.org/abs/2403.04642">Paper</a>
+                     /
+                    <a href="https://twitter.com/Dahoas1/status/1766120506028359853">tl;dr</a>
+                     ]
+                    <br>
+                    <p>
+                    In this work, we set out to understand how different algorithms fare at improving LLM reasoning from feedback. We compare expert iteration, PPO, and return-conditioned RL using Llama-2 as the base model.
+                    </p>
+                  </td>
+              </tr>
               <tr onmouseout="comp_attention_stop()" onmouseover="comp_attention_start()">
                   <td style="padding:20px;width:25%;vertical-align:middle">
                     <img src="images/ICL-SDM.gif" alt="kts" style="border-style: none" width="200">
