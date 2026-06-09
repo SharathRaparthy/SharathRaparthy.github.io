@@ -1,1 +1,0 @@
-{"root":["./src/App.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/Footer.tsx","./src/components/Hero.tsx","./src/components/NewsSection.tsx","./src/components/PaperCard.tsx","./src/components/ResearchSection.tsx","./src/components/SocialLinks.tsx","./src/data/news.tsx","./src/data/papers.tsx","./src/hooks/useScrollReveal.ts"],"version":"5.8.3"}
