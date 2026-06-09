@@ -101,8 +101,9 @@ export const newsItems: NewsItem[] = [
     date: 'Feb 2024:',
     content: (
       <>
-        Featured on <a href="https://www.talkrl.com/episodes/sharath-chandra-raparthy">TalkRL podcast</a>{' '}
-        to discuss our work on In-context Learning for Sequential Decision Making.
+        Featured on{' '}
+        <a href="https://www.talkrl.com/episodes/sharath-chandra-raparthy">TalkRL podcast</a> to
+        discuss our work on In-context Learning for Sequential Decision Making.
       </>
     ),
   },

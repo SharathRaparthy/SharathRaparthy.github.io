@@ -60,9 +60,9 @@ export const papers: Paper[] = [
     imageAlt: 'Rainbow Teaming',
     authors: (
       <>
-        Mikayel Samvelyan*, <Me star />, Andrei Lupu*, Eric Hambro, Aram H. Markosyan, Manish
-        Bhatt, Yuning Mao, Minqi Jiang, Jack Parker-Holder, Jakob Foerster, Tim Rocktäschel,
-        Roberta Raileanu
+        Mikayel Samvelyan*, <Me star />, Andrei Lupu*, Eric Hambro, Aram H. Markosyan, Manish Bhatt,
+        Yuning Mao, Minqi Jiang, Jack Parker-Holder, Jakob Foerster, Tim Rocktäschel, Roberta
+        Raileanu
       </>
     ),
     venue: 'Neural Information Processing Systems (NeurIPS), 2024',
@@ -72,7 +72,7 @@ export const papers: Paper[] = [
       { label: 'tl;dr', href: 'https://twitter.com/_samvelyan/status/1762519344943104195' },
     ],
     description:
-      "Introducing Rainbow Teaming, a new method for generating diverse adversarial prompts for " +
+      'Introducing Rainbow Teaming, a new method for generating diverse adversarial prompts for ' +
       "LLMs via LLMs. It's a versatile tool for diagnosing model vulnerabilities across domains " +
       'and creating data to enhance robustness & safety.',
   },

@@ -1,0 +1,5 @@
+dist/
+node_modules/
+mipnerf/
+mipnerf360/
+package-lock.json
