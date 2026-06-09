@@ -6,7 +6,7 @@ export default function ResearchSection() {
   const headingRef = useScrollReveal<HTMLHeadingElement>();
 
   return (
-    <section className="research-section">
+    <section className="research-section" id="research">
       <h2 ref={headingRef}>Research</h2>
       {papers.map((paper) => (
         <PaperCard paper={paper} key={paper.title} />

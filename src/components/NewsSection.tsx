@@ -5,7 +5,7 @@ export default function NewsSection() {
   const sectionRef = useScrollReveal<HTMLElement>();
 
   return (
-    <section className="news-section" ref={sectionRef}>
+    <section className="news-section" id="news" ref={sectionRef}>
       <h2>News</h2>
       <div className="news-fade" role="region" aria-label="News updates" tabIndex={0}>
         <div className="news-container">
