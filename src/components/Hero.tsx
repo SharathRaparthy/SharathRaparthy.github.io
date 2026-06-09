@@ -39,7 +39,13 @@ export default function Hero() {
       </div>
 
       <div className="hero-photo">
-        <img src="/images/sharath_sf.jpg" alt="Sharath Chandra Raparthy" />
+        <img
+          src="/images/sharath_sf.jpg"
+          alt="Sharath Chandra Raparthy"
+          width={180}
+          height={180}
+          fetchPriority="high"
+        />
       </div>
     </section>
   );
