@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { render, screen, within } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import App from './App.tsx';
 import { newsItems } from './data/news.tsx';
 import { papers } from './data/papers.tsx';
@@ -54,6 +54,24 @@ describe('App', () => {
       'src',
       '/images/rainbow-teaming.png',
     );
+  });
+
+  it('renders header navigation to all sections', () => {
+    const { section } = renderApp();
+    const nav = section('.header-nav');
+    expect(nav.getByRole('link', { name: 'about' })).toHaveAttribute('href', '#about');
+    expect(nav.getByRole('link', { name: 'news' })).toHaveAttribute('href', '#news');
+    expect(nav.getByRole('link', { name: 'research' })).toHaveAttribute('href', '#research');
+  });
+
+  it('toggles between dark and light theme', () => {
+    const { section } = renderApp();
+    const initial = document.documentElement.dataset.theme;
+    const toggle = section('.header-nav').getByRole('button', { name: /switch to/i });
+    fireEvent.click(toggle);
+    expect(document.documentElement.dataset.theme).not.toBe(initial);
+    fireEvent.click(toggle);
+    expect(document.documentElement.dataset.theme).toBe(initial);
   });
 
   it('external social links open safely in a new tab', () => {

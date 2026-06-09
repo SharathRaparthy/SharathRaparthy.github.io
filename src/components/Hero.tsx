@@ -1,10 +1,21 @@
 import SocialLinks from './SocialLinks.tsx';
+import { useTypewriter } from '../hooks/useTypewriter.ts';
+
+const TAGLINE = 'research = ["LLM reasoning", "open-endedness", "in-context RL"]';
 
 export default function Hero() {
+  const { typed, done } = useTypewriter(TAGLINE);
+
   return (
-    <section className="hero-section">
+    <section className="hero-section" id="about">
       <div className="hero-text">
         <h1 className="hero-name">Sharath Chandra Raparthy</h1>
+        <p className="hero-tagline" aria-label={TAGLINE}>
+          <span aria-hidden="true">
+            {typed}
+            <span className={`typing-caret${done ? ' done' : ''}`} />
+          </span>
+        </p>
 
         <p>
           I am a Research Engineer at <a href="https://deepmind.google/">Google DeepMind</a>,
