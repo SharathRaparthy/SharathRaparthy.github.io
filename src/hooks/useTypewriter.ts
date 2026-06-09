@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 
 /**
  * Types out `text` character by character. Renders the full text immediately
- * when the user prefers reduced motion.
+ * during prerendering and when the user prefers reduced motion.
  */
 export function useTypewriter(text: string, speedMs = 35, startDelayMs = 400) {
   const reduceMotion =
-    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    typeof window === 'undefined' || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const [length, setLength] = useState(() => (reduceMotion ? text.length : 0));
 
   useEffect(() => {
