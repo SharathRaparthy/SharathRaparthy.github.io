@@ -7,7 +7,7 @@ export default function NewsSection() {
   return (
     <section className="news-section" ref={sectionRef}>
       <h2>News</h2>
-      <div className="news-fade">
+      <div className="news-fade" role="region" aria-label="News updates" tabIndex={0}>
         <div className="news-container">
           <ul className="news-list">
             {newsItems.map((item, i) => (
