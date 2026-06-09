@@ -947,3 +947,17 @@ button:focus-visible,
   outline-offset: 2px;
   border-radius: 4px;
 }
+
+/* Theme-toggle icons are swapped purely via CSS so the markup is
+   theme-independent (required for prerendering). */
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+:root[data-theme='dark'] .theme-toggle .icon-sun {
+  display: block;
+}
+
+:root[data-theme='dark'] .theme-toggle .icon-moon {
+  display: none;
+}

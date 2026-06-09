@@ -11,9 +11,12 @@ export default function Hero() {
       <div className="hero-text">
         <h1 className="hero-name">Sharath Chandra Raparthy</h1>
         <p className="hero-tagline" aria-label={TAGLINE}>
+          {/* Prerendered HTML contains the full text; the client re-types it. */}
           <span aria-hidden="true">
-            {typed}
-            <span className={`typing-caret${done ? ' done' : ''}`} />
+            {/* Zero-width space keeps a text node present even before typing
+                starts, so the prerendered HTML stays structurally identical. */}
+            <span suppressHydrationWarning>{typed || '​'}</span>
+            <span className={`typing-caret${done ? ' done' : ''}`} suppressHydrationWarning />
           </span>
         </p>
 

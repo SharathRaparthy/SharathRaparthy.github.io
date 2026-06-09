@@ -66,12 +66,11 @@ describe('App', () => {
 
   it('toggles between dark and light theme', () => {
     const { section } = renderApp();
-    const initial = document.documentElement.dataset.theme;
-    const toggle = section('.header-nav').getByRole('button', { name: /switch to/i });
+    const toggle = section('.header-nav').getByRole('button', { name: /toggle color theme/i });
     fireEvent.click(toggle);
-    expect(document.documentElement.dataset.theme).not.toBe(initial);
+    expect(document.documentElement.dataset.theme).toBe('dark');
     fireEvent.click(toggle);
-    expect(document.documentElement.dataset.theme).toBe(initial);
+    expect(document.documentElement.dataset.theme).toBe('light');
   });
 
   it('external social links open safely in a new tab', () => {
