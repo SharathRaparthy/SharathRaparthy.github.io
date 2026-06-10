@@ -1,10 +1,9 @@
-import type { ReactNode } from 'react';
 import SocialLinks from './SocialLinks.tsx';
 import type { OrgLogo } from '../data/news.tsx';
 
-function Org({ href, logo, children }: { href: string; logo: OrgLogo; children: ReactNode }) {
+function Org({ href, logo, label }: { href: string; logo: OrgLogo; label: string }) {
   return (
-    <a href={href}>
+    <a className="org-link" href={href}>
       <img
         className="org-inline"
         src={`/logos/${logo}.png`}
@@ -13,7 +12,7 @@ function Org({ href, logo, children }: { href: string; logo: OrgLogo; children: 
         height={16}
         loading="lazy"
       />
-      {children}
+      <span>{label}</span>
     </a>
   );
 }
@@ -43,9 +42,7 @@ export default function Hero() {
         <p className="hero-badge">
           <span className="badge-dot" aria-hidden="true" />
           Research Engineer at&nbsp;
-          <Org href="https://deepmind.google/" logo="deepmind">
-            Google DeepMind
-          </Org>
+          <Org href="https://deepmind.google/" logo="deepmind" label="Google DeepMind" />
         </p>
 
         <h1 className="hero-name">Sharath Chandra Raparthy</h1>
@@ -56,25 +53,15 @@ export default function Hero() {
         </p>
 
         <p className="hero-bio">
-          Previously at{' '}
-          <Org href="https://www.reka.ai/" logo="reka">
-            Reka AI
-          </Org>{' '}
-          building multimodal agents, and an AI Resident at{' '}
-          <Org href="https://ai.meta.com/" logo="meta">
-            FAIR (Meta)
-          </Org>{' '}
-          — core contributor to <a href="https://arxiv.org/abs/2407.21783">Llama 3</a> and co-lead
-          of <a href="https://arxiv.org/abs/2402.16822">Rainbow Teaming</a>. Master&apos;s from{' '}
-          <Org href="https://mila.quebec/en/" logo="mila">
-            Mila
-          </Org>{' '}
-          with <a href="https://sites.google.com/site/irinarish/">Irina Rish</a>; GFlowNets for drug
-          discovery at{' '}
-          <Org href="https://www.recursion.com" logo="recursion">
-            Recursion
-          </Org>
-          . Off the clock: long runs, cooking, books, a camera.
+          Previously at <Org href="https://www.reka.ai/" logo="reka" label="Reka AI" /> building
+          multimodal agents, and an AI Resident at{' '}
+          <Org href="https://ai.meta.com/" logo="meta" label="FAIR (Meta)" /> — core contributor to{' '}
+          <a href="https://arxiv.org/abs/2407.21783">Llama 3</a> and co-lead of{' '}
+          <a href="https://arxiv.org/abs/2402.16822">Rainbow Teaming</a>. Master&apos;s from{' '}
+          <Org href="https://mila.quebec/en/" logo="mila" label="Mila" /> with{' '}
+          <a href="https://sites.google.com/site/irinarish/">Irina Rish</a>; GFlowNets for drug
+          discovery at <Org href="https://www.recursion.com" logo="recursion" label="Recursion" />.
+          Off the clock: long runs, cooking, books, a camera.
         </p>
 
         <SocialLinks />
