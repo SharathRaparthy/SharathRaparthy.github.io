@@ -1,10 +1,22 @@
 import type { ReactNode } from 'react';
 
-import type { NewsIcon } from './icons.ts';
+export type OrgLogo =
+  | 'deepmind'
+  | 'reka'
+  | 'meta'
+  | 'mila'
+  | 'recursion'
+  | 'neurips'
+  | 'icml'
+  | 'iclr'
+  | 'arxiv'
+  | 'talkrl'
+  | 'pwc';
 
 export interface NewsItem {
   date: string;
-  icon: NewsIcon;
+  /** Logo of the organization linked in the item (public/logos/<name>.png). */
+  icon: OrgLogo;
   content: ReactNode;
 }
 
@@ -21,7 +33,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Oct 2024:',
-    icon: 'work',
+    icon: 'reka',
     content: (
       <>
         Joined <a href="https://www.reka.ai/">Reka AI</a> as a Member of Technical Staff.
@@ -30,7 +42,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Sep 2024:',
-    icon: 'trophy',
+    icon: 'neurips',
     content: (
       <>
         <a href="https://arxiv.org/abs/2402.16822">Rainbow Teaming</a> got accepted into{' '}
@@ -51,7 +63,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Jun 2024:',
-    icon: 'trophy',
+    icon: 'icml',
     content: (
       <>
         <a href="https://arxiv.org/abs/2403.04642">GLoRe</a> and{' '}
@@ -111,7 +123,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Feb 2024:',
-    icon: 'mic',
+    icon: 'talkrl',
     content: (
       <>
         Featured on{' '}
@@ -135,7 +147,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Oct 2022:',
-    icon: 'trophy',
+    icon: 'icml',
     content: (
       <>
         Our work <a href="https://arxiv.org/abs/2210.12765">Multi-Objective GFlowNets</a> got
@@ -145,7 +157,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Aug 2022:',
-    icon: 'trophy',
+    icon: 'neurips',
     content: (
       <>
         Our work{' '}
@@ -158,7 +170,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Aug 2022:',
-    icon: 'people',
+    icon: 'pwc',
     content: (
       <>
         Co-organizing{' '}
@@ -180,7 +192,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Apr 2022:',
-    icon: 'work',
+    icon: 'recursion',
     content: (
       <>
         Joining <a href="https://www.recursion.com/">Recursion</a> as a research intern.
@@ -189,7 +201,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Oct 2021:',
-    icon: 'people',
+    icon: 'pwc',
     content: (
       <>
         Co-organizing{' '}
@@ -202,7 +214,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Oct 2021:',
-    icon: 'trophy',
+    icon: 'iclr',
     content: (
       <>
         Our work on <a href="https://arxiv.org/abs/2110.09419">compositional attention</a> got
@@ -225,7 +237,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Sep 2020:',
-    icon: 'school',
+    icon: 'mila',
     content: (
       <>
         Started my masters at <a href="https://mila.quebec/">Mila</a>.

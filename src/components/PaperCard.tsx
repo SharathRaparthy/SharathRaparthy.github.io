@@ -16,7 +16,13 @@ export default function PaperCard({ paper }: { paper: Paper }) {
           {paper.title}
         </a>
         <div className="paper-authors">{paper.authors}</div>
-        {paper.venue && <div className="paper-venue">{paper.venue}</div>}
+        <div className="paper-meta">
+          <span className="paper-org">
+            <img src={`/logos/${paper.org}.png`} alt="" width={28} height={28} loading="lazy" />
+            {paper.org === 'meta' ? 'Meta AI' : 'Mila'}
+          </span>
+          {paper.venue && <div className="paper-venue">{paper.venue}</div>}
+        </div>
         <div className="paper-links">
           {paper.links.map(({ label, href }) => (
             <a className="paper-link" href={href} key={label}>
