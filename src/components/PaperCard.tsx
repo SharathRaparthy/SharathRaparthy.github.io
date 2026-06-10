@@ -1,11 +1,8 @@
 import type { Paper } from '../data/papers.tsx';
-import { useScrollReveal } from '../hooks/useScrollReveal.ts';
 
 export default function PaperCard({ paper }: { paper: Paper }) {
-  const cardRef = useScrollReveal<HTMLDivElement>();
-
   return (
-    <div className="paper-card" ref={cardRef}>
+    <div className="paper-card">
       <div className="paper-image">
         <img src={paper.image} alt={paper.imageAlt} loading="lazy" />
       </div>

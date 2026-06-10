@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import App from './App.tsx';
+import { initSite } from './site.ts';
 import { newsItems } from './data/news.tsx';
 import { papers } from './data/papers.tsx';
 
@@ -66,6 +67,7 @@ describe('App', () => {
 
   it('toggles between dark and light theme', () => {
     const { section } = renderApp();
+    initSite();
     const toggle = section('.header-nav').getByRole('button', { name: /toggle color theme/i });
     fireEvent.click(toggle);
     expect(document.documentElement.dataset.theme).toBe('dark');

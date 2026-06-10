@@ -4,20 +4,9 @@ const navLinks = [
   { label: 'research', href: '#research' },
 ];
 
-// Stateless on purpose: the current theme lives in <html data-theme>, set by the
-// inline script in index.html before first paint. Icons swap via CSS, so the
-// markup is theme-independent and safe to prerender.
-function toggleTheme() {
-  const root = document.documentElement;
-  const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
-  root.dataset.theme = next;
-  try {
-    localStorage.setItem('theme', next);
-  } catch {
-    // Storage may be unavailable (private mode); theme still toggles for the session.
-  }
-}
-
+// Markup only: the click behavior is attached by src/site.ts at runtime, and
+// the current theme lives in <html data-theme> with icons swapped via CSS, so
+// this component is theme-independent and safe to prerender.
 export default function Header() {
   return (
     <header className="site-header">
@@ -34,7 +23,6 @@ export default function Header() {
           <button
             type="button"
             className="theme-toggle"
-            onClick={toggleTheme}
             aria-label="Toggle color theme"
             title="Toggle color theme"
           >

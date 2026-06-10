@@ -736,19 +736,6 @@ h2::after {
   }
 }
 
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(12px);
-  transition:
-    opacity 0.45s var(--ease),
-    transform 0.45s var(--ease);
-}
-
-.scroll-reveal.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* ── Keyboard focus ──────────────────────────────────── */
 a:focus-visible,
 button:focus-visible,
@@ -769,10 +756,6 @@ button:focus-visible,
   }
   html {
     scroll-behavior: auto;
-  }
-  .scroll-reveal {
-    opacity: 1;
-    transform: none;
   }
 }
 

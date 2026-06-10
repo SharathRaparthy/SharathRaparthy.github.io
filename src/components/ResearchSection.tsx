@@ -1,13 +1,10 @@
 import { papers } from '../data/papers.tsx';
-import { useScrollReveal } from '../hooks/useScrollReveal.ts';
 import PaperCard from './PaperCard.tsx';
 
 export default function ResearchSection() {
-  const headingRef = useScrollReveal<HTMLHeadingElement>();
-
   return (
     <section className="research-section" id="research">
-      <h2 ref={headingRef}>Research</h2>
+      <h2>Research</h2>
       {papers.map((paper) => (
         <PaperCard paper={paper} key={paper.title} />
       ))}
