@@ -89,6 +89,22 @@
       </p>
     </noscript>
     <div id="root"></div>
+    <script>
+      // Inline watchdog: runs even if the app bundle fails or crashes.
+      // If anything leaves the root empty after boot (hydration crash,
+      // DOM-mutating extension, missing bundle), restore the prerendered HTML.
+      (function () {
+        var root = document.getElementById('root');
+        var snapshot = root ? root.innerHTML : '';
+        if (!snapshot) return;
+        setTimeout(function () {
+          if (root.childElementCount === 0) {
+            root.innerHTML = snapshot;
+            if (window.__errs) window.__errs.push('inline watchdog restored content');
+          }
+        }, 2000);
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
     <script>
       // Visit /?debug=1 to overlay render diagnostics on the page.
