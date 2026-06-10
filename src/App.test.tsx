@@ -75,6 +75,20 @@ describe('App', () => {
     expect(document.documentElement.dataset.theme).toBe('light');
   });
 
+  it('expands a paper card to reveal the TL;DR panel', () => {
+    const { container } = renderApp();
+    initSite();
+    const card = container.querySelector('.paper-card')!;
+    const toggle = card.querySelector<HTMLButtonElement>('.paper-expand')!;
+    expect(card.classList.contains('open')).toBe(false);
+    fireEvent.click(toggle);
+    expect(card.classList.contains('open')).toBe(true);
+    expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    expect(card.querySelector('.paper-ai')!.textContent!.length).toBeGreaterThan(20);
+    fireEvent.click(toggle);
+    expect(card.classList.contains('open')).toBe(false);
+  });
+
   it('external social links open safely in a new tab', () => {
     const { section } = renderApp();
     const gh = section('.social-links').getByRole('link', { name: /github/i });
