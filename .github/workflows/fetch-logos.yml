@@ -1,0 +1,18 @@
+name: Fetch org logos
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch favicons as base64
+        run: |
+          for d in deepmind.google reka.ai neurips.cc meta.com icml.cc arxiv.org \
+                   www.talkrl.com paperswithcode.com www.recursion.com iclr.cc mila.quebec; do
+            echo "LOGO_START $d"
+            curl -sL --max-time 30 "https://www.google.com/s2/favicons?domain=$d&sz=128" | base64 -w0
+            echo ""
+            echo "LOGO_END $d"
+          done
