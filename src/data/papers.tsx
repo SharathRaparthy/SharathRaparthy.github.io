@@ -13,7 +13,6 @@ export interface Paper {
   authors: ReactNode;
   venue?: ReactNode;
   links: PaperLink[];
-  description: string;
   /** Hand-written fallback summary, replaced by an on-device AI summary when available. */
   tldr: string;
 }
@@ -38,11 +37,6 @@ export const papers: Paper[] = [
         href: 'https://huggingface.co/collections/meta-llama/llama-31-669fc079a0c406a149a5738f',
       },
     ],
-    description:
-      'We open-source Llama 3.1, a new family of foundation models with native support for ' +
-      'multilinguality, coding, reasoning, and tool usage, featuring a 405B-parameter architecture ' +
-      'with 128K context window. The models show comparable performance to GPT-4 across various ' +
-      'tasks, and include Llama Guard 3 for safety.',
   },
   {
     title: 'Llama-3 Preview Models',
@@ -52,10 +46,6 @@ export const papers: Paper[] = [
     imageAlt: 'Llama 3',
     authors: 'Llama Team',
     links: [{ label: 'Blog', href: 'https://ai.meta.com/blog/meta-llama-3/' }],
-    description:
-      'We introduce Llama 3 family of large language models (LLMs), a collection of pretrained ' +
-      'and instruction tuned generative text models in 8 and 70B sizes. We achieve SOTA ' +
-      'performance for LLM models at these scales.',
   },
   {
     title: 'Rainbow Teaming: Open-Ended Generation of Diverse Adversarial Prompts',
@@ -76,10 +66,6 @@ export const papers: Paper[] = [
       { label: 'Website', href: 'https://sites.google.com/view/rainbow-teaming' },
       { label: 'tl;dr', href: 'https://twitter.com/_samvelyan/status/1762519344943104195' },
     ],
-    description:
-      'Introducing Rainbow Teaming, a new method for generating diverse adversarial prompts for ' +
-      "LLMs via LLMs. It's a versatile tool for diagnosing model vulnerabilities across domains " +
-      'and creating data to enhance robustness & safety.',
   },
   {
     title: 'GLoRe: When, Where, and How to Improve LLM Reasoning via Global and Local Refinements',
@@ -98,9 +84,6 @@ export const papers: Paper[] = [
       { label: 'Paper', href: 'https://arxiv.org/abs/2402.10963' },
       { label: 'tl;dr', href: 'https://twitter.com/Dahoas1/status/1760021603105288550' },
     ],
-    description:
-      'How to bootstrap the reasoning refinement capabilities of LLMs using synthetic data? We ' +
-      'introduce GLoRe — applied on GSM8K, we can improve a strong RL finetuned Llama-2 13B by 12%.',
   },
   {
     title: 'Teaching Large Language Models to Reason with Reinforcement Learning',
@@ -119,10 +102,6 @@ export const papers: Paper[] = [
       { label: 'Paper', href: 'https://arxiv.org/abs/2403.04642' },
       { label: 'tl;dr', href: 'https://twitter.com/Dahoas1/status/1766120506028359853' },
     ],
-    description:
-      'In this work, we set out to understand how different algorithms fare at improving LLM ' +
-      'reasoning from feedback. We compare expert iteration, PPO, and return-conditioned RL using ' +
-      'Llama-2 as the base model.',
   },
   {
     title: 'Generalization to New Sequential Decision Making Tasks with In-Context Learning',
@@ -137,12 +116,6 @@ export const papers: Paper[] = [
     ),
     venue: 'International Conference on Machine Learning (ICML), 2024',
     links: [{ label: 'Paper', href: 'https://arxiv.org/abs/2312.03801' }],
-    description:
-      'Training autonomous agents to learn new tasks from few demonstrations is challenging, ' +
-      'especially for sequential decision making which is sensitive to errors. We show that ' +
-      'training transformers on diverse offline datasets of trajectories enables in-context ' +
-      'learning of out-of-distribution sequential decision tasks from just a handful of ' +
-      'demonstrations.',
   },
   {
     title: 'Multi-Objective GFlowNets',
@@ -161,12 +134,6 @@ export const papers: Paper[] = [
       { label: 'Paper', href: 'https://arxiv.org/abs/2210.12765' },
       { label: 'Code', href: 'https://github.com/sarthmit/Compositional-Attention' },
     ],
-    description:
-      'We examine multi-objective optimization in applications like drug discovery and material ' +
-      'design, noting the failure of existing methods to achieve diverse Pareto-optimal ' +
-      'candidates. We introduce Multi-Objective GFlowNets (MOGFNs), featuring a novel Conditional ' +
-      'GFlowNet that outperforms existing methods in Hypervolume, R2-distance, and candidate ' +
-      'diversity.',
   },
   {
     title: 'Compositional Attention: Disentangling Search and Retrieval',
@@ -189,12 +156,6 @@ export const papers: Paper[] = [
       { label: 'Paper', href: 'https://arxiv.org/abs/2110.09419v1' },
       { label: 'Code', href: 'https://github.com/sarthmit/Compositional-Attention' },
     ],
-    description:
-      'We view the standard Multi-Head attention mechanism from the "Search-Retrieval" ' +
-      'perspective and highlight the rigid associations of keys and values. We propose ' +
-      'Compositional Attention, a drop-in replacement where redundancies are addressed by ' +
-      'disentangling Searches and Retrievals and composing them dynamically in a ' +
-      'context-dependent way.',
   },
   {
     title: 'Continual Learning In Environments With Polynomial Mixing Times',
@@ -213,11 +174,6 @@ export const papers: Paper[] = [
       { label: 'Paper', href: 'https://arxiv.org/abs/2112.07066' },
       { label: 'Code', href: 'https://github.com/sharathraparthy/polynomial-mixing-times' },
     ],
-    description:
-      'We concentrate on "Mixing time" of a Markov chain induced by a policy as a major ' +
-      'contributor to poor scaling. We categorize continual RL problems as Scalable MDPs, ' +
-      'formally demonstrate that these exhibit polynomial mixing times, and propose three ' +
-      'algorithms which clearly demonstrate sample efficiency.',
   },
   {
     title: 'Curriculum in Gradient-Based Meta-Reinforcement Learning',
@@ -232,10 +188,6 @@ export const papers: Paper[] = [
     ),
     venue: 'ICLR BeTR-RL Workshop, 2021',
     links: [{ label: 'Paper', href: 'https://arxiv.org/abs/2002.07956' }],
-    description:
-      'In this work we study the under-studied parameter in meta learning, "Task Distributions". ' +
-      'We show that MAML is sensitive to task distributions, and learning a curriculum of tasks ' +
-      'instead of uniformly sampling helps the adaptation performance substantially.',
   },
   {
     title: 'CuNAS — CUriosity-driven Neural-Augmented Simulator',
@@ -259,10 +211,5 @@ export const papers: Paper[] = [
         href: 'https://www.youtube.com/watch?v=Tlf5RG3OPF8&list=PL4BpvvbNDc3SxmswMbOljlUcCQJQ6eFDL&index=6',
       },
     ],
-    description:
-      'Transfer of policies from simulation to physical robots is an important open problem in ' +
-      'deep RL. We propose a simple extension to Neural-Augmented Simulators based on artificial ' +
-      'curiosity, leading to better exploration and consequently better sim-to-real transfer ' +
-      'performance.',
   },
 ];
