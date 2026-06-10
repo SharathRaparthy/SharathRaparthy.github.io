@@ -13,6 +13,13 @@ const links: SocialLink[] = [
       'M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z',
   },
   {
+    label: 'CV',
+    href: '/sharath-raparthy-cv.pdf',
+    external: true,
+    iconPath:
+      'M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z',
+  },
+  {
     label: 'GitHub',
     href: 'https://github.com/SharathRaparthy',
     external: true,

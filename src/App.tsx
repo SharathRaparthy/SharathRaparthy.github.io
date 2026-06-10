@@ -8,6 +8,9 @@ import BackToTop from './components/BackToTop.tsx';
 export default function App() {
   return (
     <>
+      <a className="skip-link" href="#about">
+        Skip to content
+      </a>
       <Header />
       <div className="site-container" id="top">
         <Hero />

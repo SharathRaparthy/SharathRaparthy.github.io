@@ -17,6 +17,14 @@ export interface Paper {
   tldr: string;
 }
 
+export function arxivIdOf(paper: Paper): string | undefined {
+  for (const link of paper.links) {
+    const m = link.href.match(/arxiv\.org\/abs\/([0-9.]+)/);
+    if (m) return m[1];
+  }
+  return undefined;
+}
+
 const Me = ({ star = false }: { star?: boolean }) => (
   <span className="me">Sharath Chandra Raparthy{star ? '*' : ''}</span>
 );
@@ -192,7 +200,8 @@ export const papers: Paper[] = [
   {
     title: 'CuNAS — CUriosity-driven Neural-Augmented Simulator',
     tldr: 'Adds curiosity-driven exploration to neural-augmented simulators, improving sim-to-real transfer of robot policies.',
-    titleHref: 'https://arxiv.org/abs/2112.07066',
+    titleHref:
+      'https://docs.google.com/presentation/d/1nVbt0iQKFTOgHEQLLHbn1Wy3bMs_mWpyzfc0aZsN30U/edit?usp=sharing',
     image: '/images/r-ss.png',
     imageAlt: 'CuNAS',
     authors: (
