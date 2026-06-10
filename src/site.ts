@@ -21,29 +21,12 @@ function summarizerApi(): BuiltInSummarizer | undefined {
   return (globalThis as { Summarizer?: BuiltInSummarizer }).Summarizer;
 }
 
-async function fetchArxivAbstract(id: string): Promise<string> {
-  const res = await fetch(`https://export.arxiv.org/api/query?id_list=${encodeURIComponent(id)}`);
-  if (!res.ok) throw new Error(`arXiv API: ${res.status}`);
-  const xml = new DOMParser().parseFromString(await res.text(), 'text/xml');
-  const summary = xml.querySelector('entry > summary')?.textContent ?? '';
-  return summary.replace(/\s+/g, ' ').trim();
-}
-
-async function loadPaperExtras(card: HTMLElement, extra: HTMLElement): Promise<void> {
-  const id = card.dataset.arxiv;
-  const absEl = extra.querySelector<HTMLElement>('.paper-abstract');
+async function loadPaperExtras(extra: HTMLElement): Promise<void> {
+  // The abstract is baked into the HTML at build time (the arXiv API has no
+  // CORS headers, so it cannot be fetched from the browser).
+  const abstract = extra.querySelector<HTMLElement>('.paper-abstract')?.textContent?.trim() ?? '';
   const aiEl = extra.querySelector<HTMLElement>('.paper-ai');
   const srcEl = extra.querySelector<HTMLElement>('.ai-src');
-
-  let abstract = '';
-  if (id && absEl) {
-    try {
-      abstract = await fetchArxivAbstract(id);
-      absEl.textContent = abstract || 'No abstract found.';
-    } catch {
-      absEl.textContent = 'Could not load the abstract right now — try the paper link above.';
-    }
-  }
 
   // Upgrade the hand-written TL;DR with an on-device AI summary when the
   // browser ships one (Chrome's Summarizer API). Fails quietly otherwise.
@@ -98,7 +81,7 @@ export function initSite(): void {
       btn.setAttribute('aria-expanded', String(open));
       if (open && !extra.dataset.loaded) {
         extra.dataset.loaded = '1';
-        void loadPaperExtras(card, extra);
+        void loadPaperExtras(extra);
       }
     });
   });
