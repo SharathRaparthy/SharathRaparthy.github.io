@@ -26,7 +26,14 @@ export function useScrollReveal<T extends HTMLElement>() {
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
+
+    // Failsafe: never leave content hidden if the observer misbehaves.
+    const failsafe = setTimeout(() => el.classList.add('revealed'), 1500);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(failsafe);
+    };
   }, []);
 
   return ref;

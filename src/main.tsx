@@ -17,3 +17,11 @@ if (container.hasChildNodes()) {
 } else {
   createRoot(container).render(app);
 }
+
+declare global {
+  interface Window {
+    __APP_LOADED__?: boolean;
+    __errs?: string[];
+  }
+}
+window.__APP_LOADED__ = true;

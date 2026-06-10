@@ -87,5 +87,36 @@
     </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Visit /?debug=1 to overlay render diagnostics on the page.
+      if (location.search.indexOf('debug') !== -1) {
+        window.__errs = [];
+        window.addEventListener('error', function (e) {
+          window.__errs.push((e.message || String(e)).slice(0, 120));
+        });
+        setTimeout(function () {
+          var root = document.getElementById('root');
+          var h1 = document.querySelector('h1');
+          var hero = document.querySelector('.hero-section');
+          var box = document.createElement('pre');
+          box.style.cssText =
+            'position:fixed;left:8px;bottom:8px;z-index:2147483647;background:#000;color:#0f0;' +
+            'font:11px/1.5 monospace;padding:10px 12px;border-radius:8px;max-width:92vw;' +
+            'white-space:pre-wrap;opacity:1;transform:none;';
+          box.textContent = [
+            'root children: ' + (root ? root.children.length : 'NO #root'),
+            'h1 text: ' + (h1 ? h1.textContent.slice(0, 40) : 'NONE'),
+            'hero opacity: ' + (hero ? getComputedStyle(hero).opacity : '-'),
+            'hero display: ' + (hero ? getComputedStyle(hero).display : '-'),
+            'hydrated: ' + (window.__APP_LOADED__ === true),
+            'theme: ' + document.documentElement.getAttribute('data-theme'),
+            'body bg: ' + getComputedStyle(document.body).backgroundColor,
+            'js errors: ' + (window.__errs.join(' | ') || 'none'),
+            'ua: ' + navigator.userAgent.slice(0, 90),
+          ].join('\n');
+          document.body.appendChild(box);
+        }, 2500);
+      }
+    </script>
   </body>
 </html>
