@@ -1,0 +1,45 @@
+name: Probe live site
+
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch homepage and assets
+        run: |
+          URL="https://sharathraparthy.github.io"
+          echo "================ PLAIN / (as users hit it) ================"
+          curl -sSiL "$URL/" -o /tmp/plain.txt -D /tmp/plain.headers || true
+          cat /tmp/plain.headers
+          echo "--- body bytes: $(wc -c < /tmp/plain.txt)"
+          echo "--- title: $(grep -o '<title>[^<]*' /tmp/plain.txt | head -1)"
+          echo "--- root div: $(grep -o '<div id="root">.\{0,80\}' /tmp/plain.txt | head -1)"
+          echo "--- name occurrences: $(grep -c 'Sharath Chandra Raparthy' /tmp/plain.txt || true)"
+          echo "--- paper cards: $(grep -o 'paper-card' /tmp/plain.txt | wc -l)"
+          echo "--- script tags:"
+          grep -o '<script[^>]*src="[^"]*"' /tmp/plain.txt || true
+          echo "--- stylesheet links:"
+          grep -o '<link rel="stylesheet"[^>]*' /tmp/plain.txt || true
+
+          echo "================ CACHE-BUSTED /?probe=... ================"
+          curl -sS "$URL/?probe=$RANDOM$RANDOM" -o /tmp/fresh.txt -D /tmp/fresh.headers || true
+          grep -i 'x-github-request-id\|x-served-by\|x-cache\|etag\|last-modified' /tmp/fresh.headers || true
+          echo "--- body bytes: $(wc -c < /tmp/fresh.txt)"
+          echo "--- name occurrences: $(grep -c 'Sharath Chandra Raparthy' /tmp/fresh.txt || true)"
+
+          echo "================ ASSETS ================"
+          JS=$(grep -o 'assets/index-[^"]*\.js' /tmp/fresh.txt | head -1)
+          CSS=$(grep -o 'assets/index-[^"]*\.css' /tmp/fresh.txt | head -1)
+          echo "JS referenced: $JS"
+          [ -n "$JS" ] && curl -sSI "$URL/$JS" | head -4
+          echo "CSS referenced: $CSS"
+          [ -n "$CSS" ] && curl -sSI "$URL/$CSS" | head -4
+
+          echo "================ FIRST 2500 BYTES OF BODY ================"
+          head -c 2500 /tmp/fresh.txt
+          echo ""
+          echo "================ BYTES 2500-5000 ================"
+          dd if=/tmp/fresh.txt bs=1 skip=2500 count=2500 2>/dev/null
+          echo ""
