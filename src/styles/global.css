@@ -265,6 +265,20 @@ h2 {
   box-shadow: inset 0 -2px 0 var(--accent);
 }
 
+/* ── Inline org logos in prose ───────────────────────── */
+.org-inline {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 1.5px;
+  vertical-align: -3px;
+  margin-right: 5px;
+}
+
 /* ── CTAs (social links) ─────────────────────────────── */
 .social-links {
   display: flex;
@@ -325,6 +339,7 @@ h2 {
 }
 
 .highlight-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 3px;
@@ -345,6 +360,24 @@ h2 {
   box-shadow:
     inset 0 1px 0 var(--highlight),
     var(--shadow-lift);
+}
+
+.highlight-logos {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  gap: 4px;
+}
+
+.highlight-logos img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 2.5px;
 }
 
 .highlight-kicker {
