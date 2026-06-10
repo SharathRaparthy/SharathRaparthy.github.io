@@ -53,6 +53,38 @@ async function loadPaperExtras(extra: HTMLElement): Promise<void> {
 
 /** Wires up the small interactive bits on top of the static HTML. */
 export function initSite(): void {
+  // Entrance/reveal animations are gated on this class: without JS the page
+  // is fully visible and static (hard rule after the 2026-06 blank-page saga).
+  document.documentElement.classList.add('js-anim');
+
+  const revealables = document.querySelectorAll<HTMLElement>(
+    '.paper-card, .news-item, .highlight-card',
+  );
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -8% 0px' },
+    );
+    revealables.forEach((el) => {
+      // Only elements below the fold ever get hidden.
+      if (el.getBoundingClientRect().top > window.innerHeight && !el.classList.contains('pre')) {
+        el.classList.add('pre');
+        io.observe(el);
+      }
+    });
+    // Failsafe: never leave anything hidden.
+    setTimeout(() => {
+      document.querySelectorAll('.pre:not(.in)').forEach((el) => el.classList.add('in'));
+    }, 2500);
+  }
+
   document.querySelectorAll<HTMLElement>('.theme-toggle').forEach((btn) => {
     if (btn.dataset.bound) return;
     btn.dataset.bound = '1';
