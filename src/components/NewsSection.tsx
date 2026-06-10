@@ -1,11 +1,8 @@
 import { newsItems } from '../data/news.tsx';
-import { useScrollReveal } from '../hooks/useScrollReveal.ts';
 
 export default function NewsSection() {
-  const sectionRef = useScrollReveal<HTMLElement>();
-
   return (
-    <section className="news-section" id="news" ref={sectionRef}>
+    <section className="news-section" id="news">
       <h2>News</h2>
       <div className="news-fade" role="region" aria-label="News updates" tabIndex={0}>
         <div className="news-container">
