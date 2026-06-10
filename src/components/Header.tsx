@@ -23,7 +23,7 @@ export default function Header() {
     <header className="site-header">
       <div className="site-header-inner">
         <a className="header-logo" href="#top" aria-label="Back to top">
-          <span className="header-prompt">~/</span>sharath
+          Sharath&nbsp;Raparthy
         </a>
         <nav className="header-nav" aria-label="Site sections">
           {navLinks.map(({ label, href }) => (
