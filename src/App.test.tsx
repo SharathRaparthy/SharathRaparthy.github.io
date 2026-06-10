@@ -89,6 +89,27 @@ describe('App', () => {
     expect(card.classList.contains('open')).toBe(false);
   });
 
+  it('offers the CV as a download link', () => {
+    const { section } = renderApp();
+    expect(section('.social-links').getByRole('link', { name: /cv/i })).toHaveAttribute(
+      'href',
+      '/sharath-raparthy-cv.pdf',
+    );
+  });
+
+  it('expands the news list via the show-all toggle', () => {
+    const { container } = renderApp();
+    initSite();
+    const panel = container.querySelector('.news-fade')!;
+    const toggle = container.querySelector<HTMLButtonElement>('.news-toggle')!;
+    expect(panel.classList.contains('expanded')).toBe(false);
+    fireEvent.click(toggle);
+    expect(panel.classList.contains('expanded')).toBe(true);
+    expect(toggle).toHaveTextContent('Show fewer');
+    fireEvent.click(toggle);
+    expect(panel.classList.contains('expanded')).toBe(false);
+  });
+
   it('external social links open safely in a new tab', () => {
     const { section } = renderApp();
     const gh = section('.social-links').getByRole('link', { name: /github/i });

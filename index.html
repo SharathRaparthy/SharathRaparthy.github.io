@@ -6,6 +6,7 @@
     <!-- Auto-translation rewrites the DOM mid-hydration and can crash React;
          translation tools should use the page as source text instead. -->
     <meta name="google" content="notranslate" />
+    <meta name="theme-color" content="#fafafb" />
     <script>
       // Set the theme before first paint to avoid a flash of the wrong mode.
       (function () {
@@ -15,6 +16,8 @@
             t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
           }
           document.documentElement.dataset.theme = t;
+          var tc = document.querySelector('meta[name="theme-color"]');
+          if (tc) tc.content = t === 'dark' ? '#0b0d11' : '#fafafb';
         } catch (e) {
           document.documentElement.dataset.theme = 'light';
         }
@@ -39,8 +42,10 @@
       property="og:description"
       content="Research Engineer at Google DeepMind working on open-endedness. Previously at FAIR (Meta), Reka AI, and Mila. Core contributor to Llama 3."
     />
-    <meta property="og:image" content="https://sharathraparthy.github.io/images/sharath_sf.jpg" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="https://sharathraparthy.github.io/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
       content="Sharath Chandra Raparthy — Research Engineer, Google DeepMind"
@@ -49,7 +54,7 @@
       name="twitter:description"
       content="Research Engineer at Google DeepMind working on open-endedness. Previously at FAIR (Meta), Reka AI, and Mila. Core contributor to Llama 3."
     />
-    <meta name="twitter:image" content="https://sharathraparthy.github.io/images/sharath_sf.jpg" />
+    <meta name="twitter:image" content="https://sharathraparthy.github.io/og.png" />
 
     <!-- Structured data -->
     <script type="application/ld+json">
@@ -72,12 +77,6 @@
 
     <link rel="icon" type="image/png" href="/images/icon.png" />
     <link rel="preload" as="image" href="/images/sharath_sf.jpg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
-    />
   </head>
   <body>
     <noscript>

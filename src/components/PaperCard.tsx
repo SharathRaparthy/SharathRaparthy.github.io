@@ -1,16 +1,8 @@
-import type { Paper } from '../data/papers.tsx';
+import { arxivIdOf, type Paper } from '../data/papers.tsx';
 import abstracts from '../data/abstracts.json';
 
-function arxivId(paper: Paper): string | undefined {
-  for (const link of paper.links) {
-    const m = link.href.match(/arxiv\.org\/abs\/([0-9.]+)/);
-    if (m) return m[1];
-  }
-  return undefined;
-}
-
 export default function PaperCard({ paper }: { paper: Paper }) {
-  const arxiv = arxivId(paper);
+  const arxiv = arxivIdOf(paper);
   const abstract = arxiv ? (abstracts as Record<string, string>)[arxiv] : undefined;
 
   return (

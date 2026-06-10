@@ -1,3 +1,9 @@
+import '@fontsource/inter/latin-400.css';
+import '@fontsource/inter/latin-500.css';
+import '@fontsource/inter/latin-600.css';
+import '@fontsource/instrument-sans/latin-500.css';
+import '@fontsource/instrument-sans/latin-600.css';
+import '@fontsource/instrument-sans/latin-700.css';
 import './styles/global.css';
 
 declare global {
@@ -54,6 +60,8 @@ export function initSite(): void {
       const root = document.documentElement;
       const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
       root.dataset.theme = next;
+      const tc = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+      if (tc) tc.content = next === 'dark' ? '#0b0d11' : '#fafafb';
       try {
         localStorage.setItem('theme', next);
       } catch {
@@ -85,6 +93,40 @@ export function initSite(): void {
       }
     });
   });
+
+  const newsToggle = document.querySelector<HTMLButtonElement>('.news-toggle');
+  const newsPanel = document.querySelector<HTMLElement>('.news-fade');
+  if (newsToggle && newsPanel && !newsToggle.dataset.bound) {
+    newsToggle.dataset.bound = '1';
+    const fullLabel = newsToggle.textContent ?? 'Show all updates';
+    newsToggle.addEventListener('click', () => {
+      const open = newsPanel.classList.toggle('expanded');
+      newsToggle.setAttribute('aria-expanded', String(open));
+      newsToggle.textContent = open ? 'Show fewer' : fullLabel;
+    });
+  }
+
+  // Highlight the nav link of the section currently in view.
+  const navLinks = [...document.querySelectorAll<HTMLAnchorElement>('.header-nav-link')];
+  const sections = navLinks
+    .map((link) => document.querySelector<HTMLElement>(link.getAttribute('href') ?? ''))
+    .filter((el): el is HTMLElement => el !== null);
+  if (sections.length && 'IntersectionObserver' in window) {
+    const setActive = (id: string) => {
+      navLinks.forEach((link) =>
+        link.classList.toggle('active', link.getAttribute('href') === `#${id}`),
+      );
+    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: '-30% 0px -60% 0px' },
+    );
+    sections.forEach((el) => observer.observe(el));
+  }
 }
 
 if (document.readyState !== 'loading') {
