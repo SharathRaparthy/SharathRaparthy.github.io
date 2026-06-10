@@ -34,7 +34,7 @@ export const papers: Paper[] = [
     title: 'The Llama 3 Herd of Models',
     tldr: 'Open 405B-parameter foundation models with a 128K context window, native tool use, and multilingual support — performance comparable to GPT-4, released openly.',
     titleHref: 'https://ai.meta.com/blog/meta-llama-3/',
-    image: '/images/llama3-1.png',
+    image: '/images/llama3-1.webp',
     imageAlt: 'Llama 3.1',
     authors: 'Llama Team',
     links: [
@@ -50,7 +50,7 @@ export const papers: Paper[] = [
     title: 'Llama-3 Preview Models',
     tldr: '8B and 70B pretrained and instruction-tuned models that set state-of-the-art performance at their scales on release.',
     titleHref: 'https://ai.meta.com/blog/meta-llama-3/',
-    image: '/images/llama-3.png',
+    image: '/images/llama-3.webp',
     imageAlt: 'Llama 3',
     authors: 'Llama Team',
     links: [{ label: 'Blog', href: 'https://ai.meta.com/blog/meta-llama-3/' }],
@@ -59,7 +59,7 @@ export const papers: Paper[] = [
     title: 'Rainbow Teaming: Open-Ended Generation of Diverse Adversarial Prompts',
     tldr: 'Quality-diversity search that automatically generates diverse adversarial prompts, exposing LLM vulnerabilities and producing data that measurably improves robustness.',
     titleHref: 'https://arxiv.org/abs/2402.16822',
-    image: '/images/rainbow-teaming.png',
+    image: '/images/rainbow-teaming.webp',
     imageAlt: 'Rainbow Teaming',
     authors: (
       <>
@@ -79,7 +79,7 @@ export const papers: Paper[] = [
     title: 'GLoRe: When, Where, and How to Improve LLM Reasoning via Global and Local Refinements',
     tldr: 'Stepwise reward models decide when, where, and how to refine LLM reasoning, lifting a strong RL-finetuned Llama-2 13B by 12% on GSM8K.',
     titleHref: 'https://arxiv.org/abs/2402.10963',
-    image: '/images/galore.png',
+    image: '/images/galore.webp',
     imageAlt: 'GLoRe',
     authors: (
       <>
@@ -97,7 +97,7 @@ export const papers: Paper[] = [
     title: 'Teaching Large Language Models to Reason with Reinforcement Learning',
     tldr: 'A systematic comparison of expert iteration, PPO, and return-conditioned RL for reasoning — expert iteration proves surprisingly competitive.',
     titleHref: 'https://arxiv.org/abs/2403.04642',
-    image: '/images/gsm8k.png',
+    image: '/images/gsm8k.webp',
     imageAlt: 'Teaching LLMs to Reason',
     authors: (
       <>
@@ -115,7 +115,7 @@ export const papers: Paper[] = [
     title: 'Generalization to New Sequential Decision Making Tasks with In-Context Learning',
     tldr: 'Transformers trained on diverse offline trajectories learn brand-new sequential decision-making tasks in-context from just a handful of demonstrations.',
     titleHref: 'https://arxiv.org/abs/2312.03801',
-    image: '/images/ICL-SDM.png',
+    image: '/images/ICL-SDM.webp',
     imageAlt: 'In-Context Learning for SDM',
     authors: (
       <>
@@ -129,7 +129,7 @@ export const papers: Paper[] = [
     title: 'Multi-Objective GFlowNets',
     tldr: 'Conditional GFlowNets that sample diverse Pareto-optimal candidates, outperforming prior methods for multi-objective drug and materials design.',
     titleHref: 'https://arxiv.org/abs/2210.12765',
-    image: '/images/mogfn.png',
+    image: '/images/mogfn.webp',
     imageAlt: 'Multi-Objective GFlowNets',
     authors: (
       <>
@@ -147,7 +147,7 @@ export const papers: Paper[] = [
     title: 'Compositional Attention: Disentangling Search and Retrieval',
     tldr: "Disentangles attention's search and retrieval steps and composes them dynamically — a drop-in replacement for multi-head attention.",
     titleHref: 'https://arxiv.org/abs/2110.09419v1',
-    image: '/images/comp-atten.png',
+    image: '/images/comp-atten.webp',
     imageAlt: 'Compositional Attention',
     authors: (
       <>
@@ -169,7 +169,7 @@ export const papers: Paper[] = [
     title: 'Continual Learning In Environments With Polynomial Mixing Times',
     tldr: 'Formalizes continual RL as scalable MDPs, proves they exhibit polynomial mixing times, and proposes three sample-efficient algorithms.',
     titleHref: 'https://arxiv.org/abs/2112.07066',
-    image: '/images/figure-1-draft-11.png',
+    image: '/images/figure-1-draft-11.webp',
     imageAlt: 'Continual Learning',
     authors: (
       <>
@@ -187,7 +187,7 @@ export const papers: Paper[] = [
     title: 'Curriculum in Gradient-Based Meta-Reinforcement Learning',
     tldr: 'Shows MAML is highly sensitive to task distributions; learning a task curriculum instead of uniform sampling substantially improves adaptation.',
     titleHref: 'https://arxiv.org/abs/2002.07956',
-    image: '/images/meta-adr.png',
+    image: '/images/meta-adr.webp',
     imageAlt: 'Curriculum in Meta-RL',
     authors: (
       <>

@@ -1,0 +1,22 @@
+name: Link check
+
+on:
+  schedule:
+    - cron: '0 6 * * 1' # Mondays 06:00 UTC
+  workflow_dispatch:
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check external links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # Twitter/X block bots and always fail; mailto links are excluded by default.
+          args: >-
+            --no-progress
+            --exclude 'twitter\.com|x\.com'
+            --max-retries 3
+            'src/**/*.tsx' 'index.html' 'public/404.html'
+          fail: true
