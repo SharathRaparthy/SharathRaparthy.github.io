@@ -13,6 +13,8 @@ export interface Paper {
   authors: ReactNode;
   venue?: ReactNode;
   links: PaperLink[];
+  /** Lead lab/institution (logo in public/logos, label in PaperCard). */
+  org: 'meta' | 'mila';
   /** Hand-written fallback summary, replaced by an on-device AI summary when available. */
   tldr: string;
 }
@@ -32,6 +34,7 @@ const Me = ({ star = false }: { star?: boolean }) => (
 export const papers: Paper[] = [
   {
     title: 'The Llama 3 Herd of Models',
+    org: 'meta',
     tldr: 'Open 405B-parameter foundation models with a 128K context window, native tool use, and multilingual support — performance comparable to GPT-4, released openly.',
     titleHref: 'https://ai.meta.com/blog/meta-llama-3/',
     image: '/images/llama3-1.webp',
@@ -48,6 +51,7 @@ export const papers: Paper[] = [
   },
   {
     title: 'Llama-3 Preview Models',
+    org: 'meta',
     tldr: '8B and 70B pretrained and instruction-tuned models that set state-of-the-art performance at their scales on release.',
     titleHref: 'https://ai.meta.com/blog/meta-llama-3/',
     image: '/images/llama-3.webp',
@@ -57,6 +61,7 @@ export const papers: Paper[] = [
   },
   {
     title: 'Rainbow Teaming: Open-Ended Generation of Diverse Adversarial Prompts',
+    org: 'meta',
     tldr: 'Quality-diversity search that automatically generates diverse adversarial prompts, exposing LLM vulnerabilities and producing data that measurably improves robustness.',
     titleHref: 'https://arxiv.org/abs/2402.16822',
     image: '/images/rainbow-teaming.webp',
@@ -77,6 +82,7 @@ export const papers: Paper[] = [
   },
   {
     title: 'GLoRe: When, Where, and How to Improve LLM Reasoning via Global and Local Refinements',
+    org: 'meta',
     tldr: 'Stepwise reward models decide when, where, and how to refine LLM reasoning, lifting a strong RL-finetuned Llama-2 13B by 12% on GSM8K.',
     titleHref: 'https://arxiv.org/abs/2402.10963',
     image: '/images/galore.webp',
@@ -95,6 +101,7 @@ export const papers: Paper[] = [
   },
   {
     title: 'Teaching Large Language Models to Reason with Reinforcement Learning',
+    org: 'meta',
     tldr: 'A systematic comparison of expert iteration, PPO, and return-conditioned RL for reasoning — expert iteration proves surprisingly competitive.',
     titleHref: 'https://arxiv.org/abs/2403.04642',
     image: '/images/gsm8k.webp',
@@ -113,6 +120,7 @@ export const papers: Paper[] = [
   },
   {
     title: 'Generalization to New Sequential Decision Making Tasks with In-Context Learning',
+    org: 'meta',
     tldr: 'Transformers trained on diverse offline trajectories learn brand-new sequential decision-making tasks in-context from just a handful of demonstrations.',
     titleHref: 'https://arxiv.org/abs/2312.03801',
     image: '/images/ICL-SDM.webp',
@@ -127,6 +135,7 @@ export const papers: Paper[] = [
   },
   {
     title: 'Multi-Objective GFlowNets',
+    org: 'mila',
     tldr: 'Conditional GFlowNets that sample diverse Pareto-optimal candidates, outperforming prior methods for multi-objective drug and materials design.',
     titleHref: 'https://arxiv.org/abs/2210.12765',
     image: '/images/mogfn.webp',
@@ -145,6 +154,7 @@ export const papers: Paper[] = [
   },
   {
     title: 'Compositional Attention: Disentangling Search and Retrieval',
+    org: 'mila',
     tldr: "Disentangles attention's search and retrieval steps and composes them dynamically — a drop-in replacement for multi-head attention.",
     titleHref: 'https://arxiv.org/abs/2110.09419v1',
     image: '/images/comp-atten.webp',
@@ -167,6 +177,7 @@ export const papers: Paper[] = [
   },
   {
     title: 'Continual Learning In Environments With Polynomial Mixing Times',
+    org: 'mila',
     tldr: 'Formalizes continual RL as scalable MDPs, proves they exhibit polynomial mixing times, and proposes three sample-efficient algorithms.',
     titleHref: 'https://arxiv.org/abs/2112.07066',
     image: '/images/figure-1-draft-11.webp',
@@ -185,6 +196,7 @@ export const papers: Paper[] = [
   },
   {
     title: 'Curriculum in Gradient-Based Meta-Reinforcement Learning',
+    org: 'mila',
     tldr: 'Shows MAML is highly sensitive to task distributions; learning a task curriculum instead of uniform sampling substantially improves adaptation.',
     titleHref: 'https://arxiv.org/abs/2002.07956',
     image: '/images/meta-adr.webp',
@@ -199,6 +211,7 @@ export const papers: Paper[] = [
   },
   {
     title: 'CuNAS — CUriosity-driven Neural-Augmented Simulator',
+    org: 'mila',
     tldr: 'Adds curiosity-driven exploration to neural-augmented simulators, improving sim-to-real transfer of robot policies.',
     titleHref:
       'https://docs.google.com/presentation/d/1nVbt0iQKFTOgHEQLLHbn1Wy3bMs_mWpyzfc0aZsN30U/edit?usp=sharing',
