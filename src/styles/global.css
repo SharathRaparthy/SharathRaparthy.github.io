@@ -394,14 +394,44 @@ h2 {
 
 .news-item {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0 1.3rem;
-  align-items: baseline;
+  gap: 0.95rem;
+  align-items: flex-start;
   padding: 0.85rem 0;
   border-bottom: 1px solid var(--border);
   font-size: 14.5px;
   color: var(--text-2);
   line-height: 1.6;
+}
+
+.news-icon {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-soft);
+  border-radius: 9px;
+  margin-top: 2px;
+  transition: transform var(--normal) var(--ease);
+}
+
+.news-item:hover .news-icon {
+  transform: scale(1.12) rotate(-4deg);
+}
+
+.news-icon svg {
+  width: 15px;
+  height: 15px;
+  fill: var(--accent);
+}
+
+.news-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.3rem;
+  align-items: baseline;
+  min-width: 0;
 }
 
 .news-item:last-child {
@@ -924,6 +954,62 @@ h2 {
 }
 
 /* ── Motion ──────────────────────────────────────────── */
+/* Scroll reveals: only applied by JS to below-the-fold elements. */
+html.js-anim .pre {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.55s var(--ease),
+    transform 0.55s var(--ease);
+}
+
+html.js-anim .pre.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hero entrance: staggered children when JS is confirmed running. */
+html.js-anim .hero-section {
+  animation: none;
+}
+
+html.js-anim .hero-text > * {
+  animation: rise 0.55s var(--ease) backwards;
+}
+
+html.js-anim .hero-text > *:nth-child(1) {
+  animation-delay: 0.02s;
+}
+html.js-anim .hero-text > *:nth-child(2) {
+  animation-delay: 0.08s;
+}
+html.js-anim .hero-text > *:nth-child(3) {
+  animation-delay: 0.14s;
+}
+html.js-anim .hero-text > *:nth-child(4) {
+  animation-delay: 0.2s;
+}
+html.js-anim .hero-text > *:nth-child(5) {
+  animation-delay: 0.26s;
+}
+html.js-anim .hero-text > *:nth-child(6) {
+  animation-delay: 0.32s;
+}
+
+html.js-anim .hero-highlights .highlight-card {
+  animation: rise 0.55s var(--ease) backwards;
+}
+
+html.js-anim .hero-highlights .highlight-card:nth-child(1) {
+  animation-delay: 0.38s;
+}
+html.js-anim .hero-highlights .highlight-card:nth-child(2) {
+  animation-delay: 0.46s;
+}
+html.js-anim .hero-highlights .highlight-card:nth-child(3) {
+  animation-delay: 0.54s;
+}
+
 @keyframes rise {
   from {
     opacity: 0;

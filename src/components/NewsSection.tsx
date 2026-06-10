@@ -1,4 +1,5 @@
 import { newsItems } from '../data/news.tsx';
+import { newsIcons } from '../data/icons.ts';
 
 const VISIBLE = 6;
 
@@ -11,8 +12,15 @@ export default function NewsSection() {
           <ul className="news-list">
             {newsItems.map((item, i) => (
               <li className={i < VISIBLE ? 'news-item' : 'news-item news-hidden'} key={i}>
-                <span className="news-date">{item.date}</span>
-                <span>{item.content}</span>
+                <span className="news-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d={newsIcons[item.icon]} />
+                  </svg>
+                </span>
+                <div className="news-body">
+                  <span className="news-date">{item.date}</span>
+                  <span>{item.content}</span>
+                </div>
               </li>
             ))}
           </ul>

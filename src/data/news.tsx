@@ -1,13 +1,17 @@
 import type { ReactNode } from 'react';
 
+import type { NewsIcon } from './icons.ts';
+
 export interface NewsItem {
   date: string;
+  icon: NewsIcon;
   content: ReactNode;
 }
 
 export const newsItems: NewsItem[] = [
   {
     date: 'Nov 2025:',
+    icon: 'deepmind',
     content: (
       <>
         Joined <a href="https://deepmind.google/">Google DeepMind</a> as a Research Engineer in the
@@ -17,6 +21,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Oct 2024:',
+    icon: 'work',
     content: (
       <>
         Joined <a href="https://www.reka.ai/">Reka AI</a> as a Member of Technical Staff.
@@ -25,6 +30,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Sep 2024:',
+    icon: 'trophy',
     content: (
       <>
         <a href="https://arxiv.org/abs/2402.16822">Rainbow Teaming</a> got accepted into{' '}
@@ -34,6 +40,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Jul 2024:',
+    icon: 'meta',
     content: (
       <>
         Excited to share that I&apos;m a core contributor to{' '}
@@ -44,6 +51,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Jun 2024:',
+    icon: 'trophy',
     content: (
       <>
         <a href="https://arxiv.org/abs/2403.04642">GLoRe</a> and{' '}
@@ -54,6 +62,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Apr 2024:',
+    icon: 'meta',
     content: (
       <>
         Super happy to release{' '}
@@ -63,6 +72,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Mar 2024:',
+    icon: 'arxiv',
     content: (
       <>
         New preprint on{' '}
@@ -75,6 +85,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Mar 2024:',
+    icon: 'arxiv',
     content: (
       <>
         New preprint on{' '}
@@ -87,6 +98,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Mar 2024:',
+    icon: 'arxiv',
     content: (
       <>
         New preprint on{' '}
@@ -99,6 +111,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Feb 2024:',
+    icon: 'mic',
     content: (
       <>
         Featured on{' '}
@@ -109,6 +122,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Dec 2023:',
+    icon: 'arxiv',
     content: (
       <>
         New preprint on{' '}
@@ -121,6 +135,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Oct 2022:',
+    icon: 'trophy',
     content: (
       <>
         Our work <a href="https://arxiv.org/abs/2210.12765">Multi-Objective GFlowNets</a> got
@@ -130,6 +145,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Aug 2022:',
+    icon: 'trophy',
     content: (
       <>
         Our work{' '}
@@ -142,6 +158,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Aug 2022:',
+    icon: 'people',
     content: (
       <>
         Co-organizing{' '}
@@ -154,6 +171,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Aug 2022:',
+    icon: 'meta',
     content: (
       <>
         Joining <a href="https://ai.facebook.com/">MetaAI</a> as an AI Resident.
@@ -162,6 +180,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Apr 2022:',
+    icon: 'work',
     content: (
       <>
         Joining <a href="https://www.recursion.com/">Recursion</a> as a research intern.
@@ -170,6 +189,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Oct 2021:',
+    icon: 'people',
     content: (
       <>
         Co-organizing{' '}
@@ -182,6 +202,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Oct 2021:',
+    icon: 'trophy',
     content: (
       <>
         Our work on <a href="https://arxiv.org/abs/2110.09419">compositional attention</a> got
@@ -191,6 +212,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Oct 2021:',
+    icon: 'arxiv',
     content: (
       <>
         New preprint:{' '}
@@ -203,6 +225,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: 'Sep 2020:',
+    icon: 'school',
     content: (
       <>
         Started my masters at <a href="https://mila.quebec/">Mila</a>.
