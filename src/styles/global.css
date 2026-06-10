@@ -547,14 +547,6 @@ h2 {
   margin-bottom: 0.65rem;
 }
 
-.paper-description {
-  font-size: 13.5px;
-  color: var(--text-2);
-  line-height: 1.66;
-  max-width: 60ch;
-  margin-bottom: 0.7rem;
-}
-
 .paper-links {
   display: flex;
   flex-wrap: wrap;
