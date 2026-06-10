@@ -15,12 +15,22 @@ jobs:
                  "2210.12765","2110.09419","2112.07066","2002.07956"]
           out = {}
           for i in ids:
-              xml = urllib.request.urlopen(
-                  f"https://export.arxiv.org/api/query?id_list={i}", timeout=30
-              ).read().decode()
-              m = re.search(r"<summary>(.*?)</summary>", xml, re.S)
-              out[i] = re.sub(r"\s+", " ", m.group(1)).strip() if m else ""
-              time.sleep(1)
+              for attempt in range(4):
+                  try:
+                      req = urllib.request.Request(
+                          f"https://export.arxiv.org/api/query?id_list={i}",
+                          headers={"User-Agent": "sharathraparthy.github.io build (sharathraparthy@gmail.com)"},
+                      )
+                      xml = urllib.request.urlopen(req, timeout=60).read().decode()
+                      m = re.search(r"<summary>(.*?)</summary>", xml, re.S)
+                      out[i] = re.sub(r"\s+", " ", m.group(1)).strip() if m else ""
+                      break
+                  except Exception as e:
+                      print(f"retry {i} ({attempt + 1}): {e}")
+                      time.sleep(5 * (attempt + 1))
+              else:
+                  out[i] = ""
+              time.sleep(3)
           print("ABSTRACTS_JSON_START")
           print(json.dumps(out, ensure_ascii=False, indent=2))
           print("ABSTRACTS_JSON_END")
