@@ -43,3 +43,14 @@ jobs:
           echo "================ BYTES 2500-5000 ================"
           dd if=/tmp/fresh.txt bs=1 skip=2500 count=2500 2>/dev/null
           echo ""
+
+      - name: Feature checks
+        run: |
+          URL="https://sharathraparthy.github.io"
+          BODY=$(curl -s "$URL/?probe=$RANDOM$RANDOM")
+          echo "paper-expand buttons in served HTML: $(echo "$BODY" | grep -o 'paper-expand' | wc -l)"
+          echo "paper-extra panels in served HTML: $(echo "$BODY" | grep -o 'paper-extra' | wc -l)"
+          echo "data-arxiv attrs: $(echo "$BODY" | grep -o 'data-arxiv=' | wc -l)"
+          echo "=== arXiv API CORS check ==="
+          curl -s -D - -o /dev/null -H "Origin: https://sharathraparthy.github.io" \
+            "https://export.arxiv.org/api/query?id_list=2402.16822" | grep -i 'HTTP/\|access-control\|content-type' || true
