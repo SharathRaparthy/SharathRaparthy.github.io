@@ -34,15 +34,16 @@ export default function Hero() {
         <SocialLinks />
       </div>
 
-      <div className="hero-photo">
+      <figure className="hero-photo">
         <img
           src="/images/sharath_sf.jpg"
           alt="Sharath Chandra Raparthy"
-          width={200}
-          height={200}
+          width={480}
+          height={480}
           fetchPriority="high"
         />
-      </div>
+        <figcaption className="hero-photo-caption">Google DeepMind — Open-Endedness</figcaption>
+      </figure>
     </section>
   );
 }
