@@ -120,7 +120,7 @@ export const papers: Paper[] = [
   {
     title: 'Generalization to New Sequential Decision Making Tasks with In-Context Learning',
     titleHref: 'https://arxiv.org/abs/2312.03801',
-    image: '/images/ICL-SDM.gif',
+    image: '/images/ICL-SDM.png',
     imageAlt: 'In-Context Learning for SDM',
     authors: (
       <>
