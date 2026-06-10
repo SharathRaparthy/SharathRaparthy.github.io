@@ -18,7 +18,7 @@ export default function BackToTop() {
       aria-label="Back to top"
       tabIndex={visible ? 0 : -1}
     >
-      <span aria-hidden="true">cd ~</span>
+      <span aria-hidden="true">↑</span>
     </button>
   );
 }

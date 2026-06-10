@@ -5,10 +5,7 @@ export default function Footer() {
 
   return (
     <footer className="site-footer" ref={footerRef}>
-      <div className="footer-line">
-        <span className="footer-prompt">$</span> echo &quot;&copy; {new Date().getFullYear()}{' '}
-        Sharath Chandra Raparthy&quot;
-      </div>
+      <div className="footer-line">&copy; {new Date().getFullYear()} Sharath Chandra Raparthy</div>
       <div className="footer-meta">
         Built with React + Vite ·{' '}
         <a href="https://github.com/SharathRaparthy/SharathRaparthy.github.io">source</a>
