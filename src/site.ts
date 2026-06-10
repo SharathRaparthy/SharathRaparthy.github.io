@@ -94,6 +94,23 @@ export function initSite(): void {
     });
   });
 
+  document.querySelectorAll<HTMLButtonElement>('.bibtex-copy').forEach((btn) => {
+    if (btn.dataset.bound) return;
+    btn.dataset.bound = '1';
+    btn.addEventListener('click', async () => {
+      const text = btn.previousElementSibling?.textContent ?? '';
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = 'Copied ✓';
+        setTimeout(() => {
+          btn.textContent = 'Copy BibTeX';
+        }, 1600);
+      } catch {
+        btn.textContent = 'Select & copy manually';
+      }
+    });
+  });
+
   const newsToggle = document.querySelector<HTMLButtonElement>('.news-toggle');
   const newsPanel = document.querySelector<HTMLElement>('.news-fade');
   if (newsToggle && newsPanel && !newsToggle.dataset.bound) {

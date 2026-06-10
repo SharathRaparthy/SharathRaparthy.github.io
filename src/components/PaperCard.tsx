@@ -1,5 +1,6 @@
 import { arxivIdOf, type Paper } from '../data/papers.tsx';
 import abstracts from '../data/abstracts.json';
+import { bibtexFor } from '../lib/bibtex.tsx';
 
 export default function PaperCard({ paper }: { paper: Paper }) {
   const arxiv = arxivIdOf(paper);
@@ -44,6 +45,13 @@ export default function PaperCard({ paper }: { paper: Paper }) {
                 <p className="paper-abstract">{abstract}</p>
               </div>
             )}
+            <div className="extra-block">
+              <span className="extra-chip">Cite</span>
+              <pre className="paper-bibtex">{bibtexFor(paper)}</pre>
+              <button type="button" className="bibtex-copy">
+                Copy BibTeX
+              </button>
+            </div>
           </div>
         </div>
       </div>

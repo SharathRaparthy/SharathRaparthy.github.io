@@ -53,7 +53,7 @@ describe('App', () => {
     });
     expect(screen.getByAltText('Rainbow Teaming')).toHaveAttribute(
       'src',
-      '/images/rainbow-teaming.png',
+      '/images/rainbow-teaming.webp',
     );
   });
 

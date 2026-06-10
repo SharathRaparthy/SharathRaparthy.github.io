@@ -2,6 +2,8 @@ name: Probe live site
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 7 * * 1' # Mondays 07:00 UTC
 
 jobs:
   probe:
