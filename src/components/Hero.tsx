@@ -32,9 +32,7 @@ export default function Hero() {
           <a href="https://reka.ai/products/research">Reka Research</a> — an agent that answers hard
           questions by reasoning over the open web and private documents. I led its supervised
           fine-tuning and helped push it to state-of-the-art accuracy on SimpleQA and Research-Eval,
-          ahead of systems from OpenAI, Anthropic, and Perplexity, and worked on the RL fine-tuning
-          behind the open-source{' '}
-          <a href="https://reka.ai/news/introducing-reka-flash">Reka Flash 3</a>.
+          ahead of systems from OpenAI, Anthropic, and Perplexity.
         </p>
         <p className="hero-bio">
           Earlier, as an AI Resident at <a href="https://ai.meta.com/">FAIR (Meta)</a>, I was a core

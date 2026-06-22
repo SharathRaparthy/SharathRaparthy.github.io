@@ -43,16 +43,6 @@ export const newsItems: NewsItem[] = [
     ),
   },
   {
-    date: 'Mar 2025:',
-    icon: 'reka',
-    content: (
-      <>
-        Open-sourced <a href="https://reka.ai/news/introducing-reka-flash">Reka Flash 3</a>, a 21B
-        reasoning model trained from scratch.
-      </>
-    ),
-  },
-  {
     date: 'Oct 2024:',
     icon: 'reka',
     content: (
