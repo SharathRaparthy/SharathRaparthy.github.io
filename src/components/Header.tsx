@@ -1,18 +1,15 @@
 const navLinks = [
-  { label: 'about', href: '#about' },
-  { label: 'news', href: '#news' },
-  { label: 'research', href: '#research' },
+  { label: 'About', href: '#about' },
+  { label: 'News', href: '#news' },
+  { label: 'Research', href: '#research' },
 ];
 
-// Markup only: the click behavior is attached by src/site.ts at runtime, and
-// the current theme lives in <html data-theme> with icons swapped via CSS, so
-// this component is theme-independent and safe to prerender.
 export default function Header() {
   return (
     <header className="site-header">
       <div className="site-header-inner">
         <a className="header-logo" href="#top" aria-label="Back to top">
-          Sharath&nbsp;Raparthy
+          Sharath Raparthy
         </a>
         <nav className="header-nav" aria-label="Site sections">
           {navLinks.map(({ label, href }) => (

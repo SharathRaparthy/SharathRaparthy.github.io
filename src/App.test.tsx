@@ -51,7 +51,8 @@ describe('App', () => {
     titleLinks.forEach((link, i) => {
       expect(link).toHaveAttribute('href', papers[i].titleHref);
     });
-    expect(screen.getByAltText('Rainbow Teaming')).toHaveAttribute(
+    const rainbow = container.querySelectorAll('.paper-card')[2];
+    expect(rainbow.querySelector('.paper-thumb img')).toHaveAttribute(
       'src',
       '/images/rainbow-teaming.webp',
     );
@@ -60,9 +61,9 @@ describe('App', () => {
   it('renders header navigation to all sections', () => {
     const { section } = renderApp();
     const nav = section('.header-nav');
-    expect(nav.getByRole('link', { name: 'about' })).toHaveAttribute('href', '#about');
-    expect(nav.getByRole('link', { name: 'news' })).toHaveAttribute('href', '#news');
-    expect(nav.getByRole('link', { name: 'research' })).toHaveAttribute('href', '#research');
+    expect(nav.getByRole('link', { name: 'About' })).toHaveAttribute('href', '#about');
+    expect(nav.getByRole('link', { name: 'News' })).toHaveAttribute('href', '#news');
+    expect(nav.getByRole('link', { name: 'Research' })).toHaveAttribute('href', '#research');
   });
 
   it('toggles between dark and light theme', () => {

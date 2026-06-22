@@ -1,8 +1,9 @@
 # sharathraparthy.github.io — architecture notes
 
 Personal academic site. React is **build-time only**; the browser receives
-static HTML plus a small vanilla script. Design system: "Signal"
-(graphite surfaces, indigo glow, Instrument Sans + Inter, self-hosted fonts).
+static HTML plus a small vanilla script. Design system: "Quiet"
+(calm, typography-first, left-aligned; Geist sans/mono, warm paper /
+deep ink, a single blue accent for links — no cards/pills/gradients).
 
 ## How it builds
 
