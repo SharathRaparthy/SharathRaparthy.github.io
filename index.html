@@ -6,7 +6,7 @@
     <!-- Auto-translation rewrites the DOM mid-hydration and can crash React;
          translation tools should use the page as source text instead. -->
     <meta name="google" content="notranslate" />
-    <meta name="theme-color" content="#fafafb" />
+    <meta name="theme-color" content="#faf9f7" />
     <script>
       // Set the theme before first paint to avoid a flash of the wrong mode.
       (function () {
@@ -17,7 +17,7 @@
           }
           document.documentElement.dataset.theme = t;
           var tc = document.querySelector('meta[name="theme-color"]');
-          if (tc) tc.content = t === 'dark' ? '#0b0d11' : '#fafafb';
+          if (tc) tc.content = t === 'dark' ? '#121210' : '#faf9f7';
         } catch (e) {
           document.documentElement.dataset.theme = 'light';
         }

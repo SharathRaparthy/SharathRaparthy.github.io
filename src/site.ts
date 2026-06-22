@@ -1,9 +1,9 @@
-import '@fontsource/inter/latin-400.css';
-import '@fontsource/inter/latin-500.css';
-import '@fontsource/inter/latin-600.css';
-import '@fontsource/instrument-sans/latin-500.css';
-import '@fontsource/instrument-sans/latin-600.css';
-import '@fontsource/instrument-sans/latin-700.css';
+import '@fontsource/geist-sans/300.css';
+import '@fontsource/geist-sans/400.css';
+import '@fontsource/geist-sans/500.css';
+import '@fontsource/geist-sans/600.css';
+import '@fontsource/geist-mono/400.css';
+import '@fontsource/geist-mono/500.css';
 import './styles/global.css';
 
 declare global {
@@ -57,9 +57,7 @@ export function initSite(): void {
   // is fully visible and static (hard rule after the 2026-06 blank-page saga).
   document.documentElement.classList.add('js-anim');
 
-  const revealables = document.querySelectorAll<HTMLElement>(
-    '.paper-card, .news-item, .highlight-card',
-  );
+  const revealables = document.querySelectorAll<HTMLElement>('.paper-card, .news-item');
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(
       (entries) => {
@@ -93,7 +91,7 @@ export function initSite(): void {
       const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
       root.dataset.theme = next;
       const tc = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
-      if (tc) tc.content = next === 'dark' ? '#0b0d11' : '#fafafb';
+      if (tc) tc.content = next === 'dark' ? '#121210' : '#faf9f7';
       try {
         localStorage.setItem('theme', next);
       } catch {
