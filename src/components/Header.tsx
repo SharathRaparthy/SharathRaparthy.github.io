@@ -19,6 +19,14 @@ export default function Header() {
           ))}
           <button
             type="button"
+            className="cmdk-trigger"
+            aria-label="Open command menu"
+            title="Search — press Command-K or Control-K"
+          >
+            <kbd>⌘K</kbd>
+          </button>
+          <button
+            type="button"
             className="theme-toggle"
             aria-label="Toggle color theme"
             title="Toggle color theme"

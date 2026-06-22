@@ -8,6 +8,7 @@ const links: SocialLink[] = [
   { label: 'Email', href: 'mailto:sharathraparthy@gmail.com' },
   { label: 'CV', href: '/sharath-raparthy-cv.pdf', external: true },
   { label: 'GitHub', href: 'https://github.com/SharathRaparthy', external: true },
+  { label: 'X', href: 'https://x.com/sharathraparthy', external: true },
   {
     label: 'Google Scholar',
     href: 'https://scholar.google.ca/citations?user=S1R0_UMAAAAJ&hl=en',

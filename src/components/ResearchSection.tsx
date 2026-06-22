@@ -25,6 +25,14 @@ export default function ResearchSection() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(scholarlyData) }}
       />
+      <p className="section-lead">
+        My research is about systems that keep getting better on their own — generating their own
+        challenges, reasoning through them, and improving open-endedly, with recursive
+        self-improvement as the north star. That thread connects open-ended red-teaming (Rainbow
+        Teaming), reinforcement learning for reasoning (GLoRe, Llama 3, Reka Flash 3), research
+        agents that reason over the web (Reka Research), in-context and continual RL, and generative
+        models for scientific discovery (GFlowNets).
+      </p>
       <div className="research-grid">
         {papers.map((paper) => (
           <PaperCard paper={paper} key={paper.title} />
