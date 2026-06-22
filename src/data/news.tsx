@@ -43,15 +43,6 @@ export const newsItems: NewsItem[] = [
     ),
   },
   {
-    date: 'Oct 2024:',
-    icon: 'reka',
-    content: (
-      <>
-        Joined <a href="https://www.reka.ai/">Reka AI</a> as a Member of Technical Staff.
-      </>
-    ),
-  },
-  {
     date: 'Sep 2024:',
     icon: 'neurips',
     content: (
@@ -153,6 +144,15 @@ export const newsItems: NewsItem[] = [
           Generalization to New Sequential Decision Making Tasks with In-Context Learning
         </a>
         .
+      </>
+    ),
+  },
+  {
+    date: 'Sep 2023:',
+    icon: 'reka',
+    content: (
+      <>
+        Joined <a href="https://www.reka.ai/">Reka AI</a> as a Member of Technical Staff.
       </>
     ),
   },
