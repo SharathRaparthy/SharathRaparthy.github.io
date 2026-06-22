@@ -4,6 +4,7 @@ import NewsSection from './components/NewsSection.tsx';
 import ResearchSection from './components/ResearchSection.tsx';
 import Footer from './components/Footer.tsx';
 import BackToTop from './components/BackToTop.tsx';
+import CommandPalette from './components/CommandPalette.tsx';
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Footer />
       </div>
       <BackToTop />
+      <CommandPalette />
     </>
   );
 }

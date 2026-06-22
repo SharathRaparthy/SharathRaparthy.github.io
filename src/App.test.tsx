@@ -111,6 +111,19 @@ describe('App', () => {
     expect(panel.classList.contains('expanded')).toBe(false);
   });
 
+  it('opens the command palette and lists every paper', () => {
+    const { container } = renderApp();
+    initSite();
+    const palette = container.querySelector<HTMLElement>('.cmdk')!;
+    expect(palette.hidden).toBe(true);
+    container.querySelector<HTMLButtonElement>('.cmdk-trigger')!.click();
+    expect(palette.hidden).toBe(false);
+    const paperItems = [...palette.querySelectorAll('.cmdk-item')].filter((el) =>
+      el.querySelector('.cmdk-kind')?.textContent?.includes('Paper'),
+    );
+    expect(paperItems).toHaveLength(papers.length);
+  });
+
   it('external social links open safely in a new tab', () => {
     const { section } = renderApp();
     const gh = section('.social-links').getByRole('link', { name: /github/i });
